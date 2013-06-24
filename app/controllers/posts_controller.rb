@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.by_votes
+    @posts = Post.all
   end
 end

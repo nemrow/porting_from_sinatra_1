@@ -1,9 +1,11 @@
 HackerNewsRails::Application.routes.draw do
+
   # home
   root :to => 'posts#index'
-  
+
   # users
   resources :users
+  match '/signup' => 'users#new'
 
   # Sessions
   get    '/login'  => 'sessions#new'

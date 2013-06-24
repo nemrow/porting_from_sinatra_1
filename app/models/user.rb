@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password_confirmation
+  attr_accessible :name, :email, :password
   before_save :encrypt_password
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
