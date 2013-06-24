@@ -1,4 +1,15 @@
 HackerNewsRails::Application.routes.draw do
+  # home
+  root :to => 'posts#index'
+  
+  # users
+  resources :users
+
+  # Sessions
+  get    '/login'  => 'sessions#new'
+  post   '/login'  => 'sessions#create'
+  delete '/logout' => 'sessions#destroy', :via => :delete
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
