@@ -5,11 +5,13 @@
       <%= erb :_errors, locals: {errors: @errors} %>
     <% end %>
     <div id="login">
-      <form action="/login" method="post" class="form">
-        <input type="text" id="name" placeholder="Name" name="user[name]"><br>
-        <input type="text" id="password" placeholder="Password" name="user[password]"><br>
-        <input type="submit" value="Login" placeholder=" Confirm password" class="submit-button">
-      </form>
+
+      <%= form_for @user do |f|  %>
+        <%=     f.text_field     :name, placeholder: "Username" %>
+        <%=     f.password_field :password, placeholder: "Password" %>
+        <%=     f.submit "Login" %>
+      <% end %>
+
     </div>
   </div>
 </div>

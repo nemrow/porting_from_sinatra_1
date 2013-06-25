@@ -1,0 +1,19 @@
+<header>
+  <%= image_tag("https://news.ycombinator.com/y18.gif") %>
+  <%= link_to "Handsom News", :root, {:class => "logo"} %>
+  <nav class="content">
+    <ul>
+      <li><a href="/posts/new">submit</li>
+    </ul>
+  </nav>
+  <nav class="user">
+    <ul>
+      <% unless session[:user] %>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <li><%= link_to "Login", login_path %></li>
+      <% else %>
+        <li><%= link_to "Logout", logout_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

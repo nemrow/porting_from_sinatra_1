@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if User.authenticate(params[:user][:name], params[:user][:password])
       @user = User.find_by_name(params[:user][:name])
       session[:user] = @user.id
-      redirect '/'
+      redirect_to root_path
     else
       @errors = {error: "Invalid name or password."}
       erb :login
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect '/'
+    redirect_to root_path
   end
 end
