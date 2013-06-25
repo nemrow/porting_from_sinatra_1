@@ -1,0 +1,7 @@
+<div class='container'>
+  <%= form_for @post do |p| %>
+    <%= p.text_field :title,  :placeholder => "Title" %>
+    <%= p.text_field :link_url, :placeholder => "url" %>
+    <%= p.submit "Submit" %>
+  <% end %>
+</div>

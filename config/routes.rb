@@ -56,4 +56,27 @@ HackerNewsRails::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
+  # Root
+  root :to => 'posts#index'
+
+  # Users
+  resources :users
+  match '/signup' => 'users#new'
+
+  # Sessions
+  get    '/login'  => 'sessions#new'
+  post   '/login'  => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  # Posts
+  resources :posts do
+    resources :vote
+  end
+
+  # Comments
+  resources :comments
+
+  # Votes
+
+
 end

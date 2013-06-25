@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   has_many :votes
+  attr_accessible :title, :link_url
 
   def self.by_votes
      joins('left join votes on votes.post_id = posts.id').
